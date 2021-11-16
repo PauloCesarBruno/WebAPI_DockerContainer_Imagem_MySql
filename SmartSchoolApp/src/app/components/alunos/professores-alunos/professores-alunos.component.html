@@ -1,0 +1,27 @@
+<table class="table table-hover table-bordered">
+  <thead class="thead-light bg-light">
+    <tr>
+      <th> Visualizar</th>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Disciplina</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let prof of professores">
+      <td>
+
+        <!-- Os (*ngIf="prof.ativo") no botão e nos TH´s são para ocultar o Professor e sesus dados caso ele esteja
+        como Não ATIVO lá em professores.component -->
+
+        <button (click)="professorSelect(prof)" class="text-dark btn btn-sm btn-outline-warning" *ngIf="prof.ativo"
+        >
+        Detalhe
+      </button>
+      </td>
+      <th *ngIf="prof.ativo" scope="row">{{prof.id}}</th>
+      <td *ngIf="prof.ativo">{{prof.nome}}</td>
+      <td *ngIf="prof.ativo">{{disciplinaConcat(prof.disciplinas)}}</td>
+    </tr>
+  </tbody>
+</table>
