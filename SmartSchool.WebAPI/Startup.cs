@@ -27,7 +27,7 @@ namespace SmartSchool.WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
            services.AddDbContext<SmartContext>(context =>
-                context.UseSqlServer(Configuration.GetConnectionString("Default"))
+                context.UseMySql(Configuration.GetConnectionString("MysqlConnection"))
             );
 
             // Abaixo Ignora o Loop do Json.
